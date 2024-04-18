@@ -9,7 +9,7 @@ class wrongUserService {
 
 export class userService {
   getUsers(requestConfig?: AxiosRequestConfig) {
-    return api.get<User[]>('/users', requestConfig?.config);
+    return api.get<UsersResponse>('/users', requestConfig?.config);
   }
 
   postUser({ params, config }: AxiosRequestConfig<Omit<User, 'id'>>) {
@@ -17,6 +17,6 @@ export class userService {
   }
 
   getUserById({ params, config }: AxiosRequestConfig<{id: string}>){
-    return api.get<User[]>(`/users${params.id}`, config);
+    return api.get<UsersResponse>(`/users/${params.id}`, config);
   }
 }
